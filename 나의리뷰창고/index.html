@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>나의 영화 리뷰 보관함</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body style="background: url('images/벼랑 위의 포뇨 1920x1080 01.jpg') no-repeat center center fixed; background-size: cover;">
+  <main class="content-area">
+    <header>
+      <h1>나의 영화 리뷰 보관함</h1>
+      <div class="sort-controls">
+        <button onclick="sortPosters('title')">제목순 정렬</button>
+        <button onclick="sortPosters('year')">개봉연도순 정렬</button>
+        <button onclick="sortPosters('rating')">별점순 정렬</button>
+      </div>
+    </header>
+
+    <section id="gallery">
+      <div class="poster"
+           data-title="이웃집토토로"
+           data-year="1988"
+           data-review="사실..바람한점불지않는날 풀숲이 들썩거리면 아직도 아주 조금 기대한다."
+           data-ost="https://www.youtube.com/watch?v=J37gSCmjUP8&list=RDJ37gSCmjUP8&start_radio=1."
+           data-rating="4">
+        <img src="images/이웃집토토로.png" alt="이웃집 토토로 포스터" />
+        <div class="rating-view" data-rating="4"></div>
+      </div>
+
+      <div class="poster"
+           data-title="센과 치히로의 행방불명"
+           data-year="2001"
+           data-review="미야자키 하야오(宮崎駿)는 말했다.10살 먹은 아이들을 위해, 그리고 언젠가 10살이었던 어른들을 위해."
+           data-ost="https://www.youtube.com/watch?v=iOYAl37AScY&list=RDiOYAl37AScY&start_radio=1"
+           data-rating="5">
+        <img src="images/센과치히로.png" alt="센과 치히로 포스터" />
+        <div class="rating-view" data-rating="5"></div>
+      </div>
+
+      <div class="poster"
+           data-title="하울의 움직이는 성"
+           data-year="2004"
+           data-review="이 세상 최고의 마법은 사랑"
+           data-ost="https://www.youtube.com/watch?v=NXt-YY3Xt8Q&list=RDNXt-YY3Xt8Q&start_radio=1"
+           data-rating="3">
+        <img src="images/하울의움직이는성.png" alt="하울의 움직이는 성 포스터" />
+        <div class="rating-view" data-rating="3"></div>
+      </div>
+    </section>
+
+    <section class="upload-area">
+      <button class="control-btn" onclick="openUploadModal()">영화 리뷰 추가하기</button>
+    </section>
+
+    <section id="movie-info" class="hidden">
+      <h2 id="info-title"></h2>
+      <p><strong>개봉연도:</strong> <span id="info-year"></span></p>
+      <p><strong>리뷰:</strong> <span id="info-review"></span></p>
+      <p><strong>OST:</strong> <a id="info-ost" href="#" target="_blank">링크 열기</a></p>
+      <p><strong>별점:</strong> <span id="info-rating"></span></p>
+      <audio id="audio-player" controls style="margin-top: 10px; display: none;"></audio>
+    </section>
+
+    <div id="upload-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close" onclick="closeUploadModal()">&times;</span>
+        <h3>리뷰 업로드</h3>
+        <input type="file" id="upload-img" accept="image/*" />
+        <input type="text" id="custom-title" placeholder="영화 제목" />
+        <textarea id="custom-review" placeholder="리뷰 작성 (3줄 이상 추천)" rows="3"></textarea>
+        <input type="text" id="custom-year" placeholder="개봉연도" />
+        <input type="text" id="custom-ost" placeholder="OST 링크 (YouTube/mp3)" />
+        <div class="star-rating">
+          <input type="radio" id="star1" name="custom-rating" value="1"><label for="star1">★</label>
+          <input type="radio" id="star2" name="custom-rating" value="2"><label for="star2">★</label>
+          <input type="radio" id="star3" name="custom-rating" value="3"><label for="star3">★</label>
+          <input type="radio" id="star4" name="custom-rating" value="4"><label for="star4">★</label>
+          <input type="radio" id="star5" name="custom-rating" value="5"><label for="star5">★</label>
+          <span> :별점 </span>
+        </div>
+        <button class="control-btn" onclick="uploadPoster()">업로드</button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
