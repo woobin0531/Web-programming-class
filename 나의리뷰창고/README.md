@@ -20,20 +20,6 @@
 - JavaScript (Vanilla JS)
 - localStorage API
 
-## 파일 구조
-
-나의리뷰창고/
-├── index.html # 메인 HTML 파일
-├── style.css # 스타일시트
-├── script.js # 자바스크립트 로직
-└── images/ # 이미지 리소스
-
-## 실행 방법
-
-1. 프로젝트를 로컬에 복사(clone)합니다.
-2. `index.html` 파일을 브라우저로 실행합니다.
-3. GitHub Pages를 사용하면 온라인에서도 접근 가능합니다.
-
 ## 미리보기
 
 ![예시 이미지](images/영화리뷰보관함.png)
